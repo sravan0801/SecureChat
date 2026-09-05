@@ -1,0 +1,34 @@
+#############################################
+# OpenSSL config for iTS Root R1 (Root CA)
+#############################################
+
+[ req ]
+default_bits       = 512
+default_md         = sha256
+prompt             = no
+distinguished_name = req_distinguished_name
+x509_extensions    = v3_root_ca
+
+[ req_distinguished_name ]
+C  = IN
+ST = Telangana
+L  = Hyderabad
+O  = iTS Security Labs
+OU = iTS Root Certification Authority
+CN = iTS Root R1
+
+[ v3_root_ca ]
+basicConstraints        = critical, CA:TRUE
+keyUsage                = critical, digitalSignature, keyCertSign, cRLSign
+subjectKeyIdentifier     = hash
+authorityKeyIdentifier   = keyid:always,issuer:always
+
+#############################################
+# Extension section used when THIS CA signs
+# the intermediate CA's CSR
+#############################################
+[ v3_intermediate_signing ]
+basicConstraints        = critical, CA:TRUE, pathlen:0
+keyUsage                = critical, keyCertSign, cRLSign
+subjectKeyIdentifier     = hash
+authorityKeyIdentifier   = keyid:always,issuer:always

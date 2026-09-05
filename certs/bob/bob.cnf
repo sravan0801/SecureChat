@@ -1,0 +1,28 @@
+#############################################
+# OpenSSL config for Bob1.com
+#############################################
+
+[ req ]
+default_bits       = 256
+default_md         = sha256
+prompt             = no
+distinguished_name = req_distinguished_name
+req_extensions     = v3_bob_req
+
+[ req_distinguished_name ]
+C  = IN
+ST = Telangana
+L  = Hyderabad
+O  = iTS Secure Chat Network
+OU = Bob Endpoint Unit
+CN = Bob1.com
+
+[ v3_bob_req ]
+basicConstraints = CA:FALSE
+keyUsage         = digitalSignature, keyAgreement
+extendedKeyUsage = serverAuth, clientAuth
+subjectAltName   = @alt_names_bob
+
+[ alt_names_bob ]
+DNS.1 = Bob1.com
+DNS.2 = bob1

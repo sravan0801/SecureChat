@@ -1,0 +1,33 @@
+#############################################
+# OpenSSL config for iTS CA 1R3 (Intermediate CA)
+#############################################
+
+[ req ]
+default_bits       = 4096
+default_md         = sha256
+prompt             = no
+distinguished_name = req_distinguished_name
+req_extensions     = v3_intermediate_req
+
+[ req_distinguished_name ]
+C  = IN
+ST = Telangana
+L  = Hyderabad
+O  = iTS Security Labs
+OU = iTS Intermediate Certification Authority
+CN = iTS CA 1R3
+
+[ v3_intermediate_req ]
+basicConstraints = critical, CA:TRUE, pathlen:0
+keyUsage         = critical, keyCertSign, cRLSign
+
+#############################################
+# Extension section used when THIS CA signs
+# leaf certificates (Alice / Bob)
+#############################################
+[ v3_leaf_signing ]
+basicConstraints        = CA:FALSE
+keyUsage                = critical, digitalSignature, keyEncipherment, keyAgreement
+extendedKeyUsage        = serverAuth, clientAuth
+subjectKeyIdentifier     = hash
+authorityKeyIdentifier   = keyid:always,issuer:always
