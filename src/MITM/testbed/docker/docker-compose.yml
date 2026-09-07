@@ -1,0 +1,53 @@
+# Task 4 test-bed: three containers on one private bridge, same star layout
+# as the assignment's LXD setup.
+#
+#   gateway 10.14.0.1   alice1 10.14.0.2   bob1 10.14.0.3   trudy1 10.14.0.4
+#
+# NOTE: container names alice1/bob1/trudy1 are shared with the Task 3
+# test-bed. Only one of the two may be up at a time — run
+#   ( cd ../../../downgrade_attack/testbed/docker && docker compose down )
+# first if needed.
+#
+#   cd src/MITM/testbed/docker
+#   docker compose up -d --build
+#   docker compose exec bob1 make
+#   docker compose exec bob1 bash fake_certs/gen_fake_certs.sh   # if needed
+#   ... run the demo (see README) ...
+#   docker compose down
+
+name: securechat-task4
+
+x-role: &role
+  build: .
+  image: securechat-task4
+  cap_add: ["NET_ADMIN"]                       # tc / tcpdump
+  working_dir: /work/src/MITM
+  command: ["sleep", "infinity"]
+  volumes:
+    - /home/sravan/projects/NetworkProjects/SecureChat:/work
+
+services:
+  alice1:
+    <<: *role
+    container_name: alice1
+    hostname: alice1
+    networks: { secnet: { ipv4_address: 10.14.0.2 } }
+
+  bob1:
+    <<: *role
+    container_name: bob1
+    hostname: bob1
+    networks: { secnet: { ipv4_address: 10.14.0.3 } }
+
+  trudy1:
+    <<: *role
+    container_name: trudy1
+    hostname: trudy1
+    networks: { secnet: { ipv4_address: 10.14.0.4 } }
+
+networks:
+  secnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.14.0.0/24

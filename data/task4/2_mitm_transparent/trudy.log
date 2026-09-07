@@ -1,0 +1,17 @@
+[trudy] active MITM armed — Alice=10.14.0.2  Bob=10.14.0.3  tamper=off
+[trudy] Alice -> Trudy : chat_hello
+[trudy] Bob   -> Trudy : chat_reply_ok
+[trudy] Alice -> Trudy : chat_START_SSL
+[trudy] Bob   -> Trudy : chat_START_SSL_ACK
+[trudy] control handshake relayed — building the two DTLS pipes
+[trudy] pipe 1 UP  —  Alice believes she is talking to Bob (fakebob)
+[trudy]     cipher : ECDHE-ECDSA-AES256-GCM-SHA384
+[trudy]     peer   : /C=IN/ST=Telangana/L=Hyderabad/O=iTS Secure Chat Network/OU=Alice Endpoint Unit/CN=Alice1.com (verify OK)
+[trudy] pipe 2 UP  —  Bob believes he is talking to Alice (fakealice)
+[trudy]     cipher : ECDHE-ECDSA-AES256-GCM-SHA384
+[trudy]     peer   : /C=IN/ST=Telangana/L=Hyderabad/O=iTS Secure Chat Network/OU=Bob Endpoint Unit/CN=Bob1.com (verify OK)
+[trudy] MITM proxy active — decrypting, logging, re-encrypting
+[trudy] Alice -> Bob  (decrypted): hello Bob, are we really secure?
+[trudy] Alice -> Bob  (decrypted): my PIN is 4242
+[trudy] Alice -> Bob  (decrypted): exit
+[trudy] done
