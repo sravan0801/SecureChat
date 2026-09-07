@@ -1,0 +1,13 @@
+UDP socket created.
+Alice connected to 10.13.0.3:8080
+
+Sending chat_hello
+[timeout] resending chat_hello (1/5)
+[timeout] resending chat_hello (2/5)
+[timeout] resending chat_hello (3/5)
+Sending chat_START_SSL
+
+Initializing OpenSSL...
+Certificate and private key loaded successfully.
+OpenSSL initialized.
+Performing DTLS handshake...

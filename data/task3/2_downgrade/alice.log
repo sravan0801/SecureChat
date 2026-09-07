@@ -1,0 +1,8 @@
+UDP socket created.
+Alice connected to 10.13.0.4:8080
+
+Sending chat_hello
+Sending chat_START_SSL
+Received chat_START_SSL_NOT_SUPPORTED — server has no secure chat.
+[!] Secure chat is unavailable — continuing in PLAINTEXT.
+You can start chatting. Type 'exit' to quit.

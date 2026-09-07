@@ -1,0 +1,17 @@
+UDP socket created.
+Bob is listening on port 8080 (all interfaces)
+
+Received: chat_hello
+Sending chat_reply_ok
+Sending chat_START_SSL_ACK
+
+Initializing OpenSSL...
+Certificate and private key loaded successfully.
+OpenSSL initialized.
+Performing DTLS handshake...
+Negotiated Cipher Suite: (NONE)
+DTLS 1.2 session established!
+You can start chatting. Type 'exit' to quit.
+Alice: this line survives 10% loss end to end
+Alice: exit
+Connection closed by peer.

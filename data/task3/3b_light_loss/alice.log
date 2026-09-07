@@ -1,0 +1,22 @@
+UDP socket created.
+Alice connected to 10.13.0.3:8080
+
+Sending chat_hello
+[timeout] resending chat_hello (1/5)
+Sending chat_START_SSL
+
+Initializing OpenSSL...
+Certificate and private key loaded successfully.
+OpenSSL initialized.
+Performing DTLS handshake...
+DTLS 1.2 session established!
+Supported Cipher Suites:
+  - TLS_AES_256_GCM_SHA384
+  - TLS_CHACHA20_POLY1305_SHA256
+  - TLS_AES_128_GCM_SHA256
+  - ECDHE-ECDSA-AES256-GCM-SHA384
+  - ECDHE-RSA-AES256-GCM-SHA384
+Negotiated Cipher Suite: ECDHE-ECDSA-AES256-GCM-SHA384
+Server (Bob) certificate verified!
+
+You can start chatting. Type 'exit' to quit.

@@ -1,0 +1,5 @@
+[trudy] downgrade attack armed — Alice=10.13.0.2  Bob=10.13.0.3  port=8080
+[trudy] blocked chat_START_SSL from Alice — injecting chat_START_SSL_NOT_SUPPORTED
+[trudy] Alice -> Bob : is this line encrypted?
+[trudy] Alice -> Bob : no - Trudy reads it in the clear
+[trudy] Alice -> Bob : exit

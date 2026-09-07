@@ -1,0 +1,51 @@
+# Task 3 test-bed: three containers on one private bridge network, laid out
+# like the assignment's LXD star topology.
+#
+#   gateway = 10.13.0.1 (the bridge itself — Docker reserves it)
+#   alice1  = 10.13.0.2     bob1 = 10.13.0.3     trudy1 = 10.13.0.4
+#
+# The whole repo is mounted at /work so all three share the same source,
+# certificates and freshly-built binaries.
+#
+#   cd src/downgrade_attack/testbed/docker
+#   docker compose up -d --build
+#   docker compose exec bob1 make          # build once, binaries land in the mount
+#   ... run the demo (see README) ...
+#   docker compose down
+
+name: securechat-task3
+
+x-role: &role
+  build: .
+  image: securechat-task3
+  cap_add: ["NET_ADMIN"]                       # needed for tc / tcpdump
+  working_dir: /work/src/downgrade_attack
+  command: ["sleep", "infinity"]
+  volumes:
+    - /home/sravan/projects/NetworkProjects/SecureChat:/work
+
+services:
+  alice1:
+    <<: *role
+    container_name: alice1
+    hostname: alice1
+    networks: { secnet: { ipv4_address: 10.13.0.2 } }
+
+  bob1:
+    <<: *role
+    container_name: bob1
+    hostname: bob1
+    networks: { secnet: { ipv4_address: 10.13.0.3 } }
+
+  trudy1:
+    <<: *role
+    container_name: trudy1
+    hostname: trudy1
+    networks: { secnet: { ipv4_address: 10.13.0.4 } }
+
+networks:
+  secnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.13.0.0/24

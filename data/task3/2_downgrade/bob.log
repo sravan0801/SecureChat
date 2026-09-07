@@ -1,0 +1,10 @@
+UDP socket created.
+Bob is listening on port 8080 (all interfaces)
+
+Received: chat_hello
+Sending chat_reply_ok
+[!] Secure chat is unavailable — continuing in PLAINTEXT.
+You can start chatting. Type 'exit' to quit.
+Alice: is this line encrypted?
+Alice: no - Trudy reads it in the clear
+Connection closed by peer.
