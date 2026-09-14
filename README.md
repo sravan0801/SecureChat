@@ -150,6 +150,5 @@ and altered.
 
 ## References
 
-- `Copy of Assignment 7_ Secure chat using openssl and MITM attacks (version 4).pdf` — the assignment brief
 - `src/downgrade_attack/README.md` — Task 3 protocol details, run/testing instructions
 - `src/MITM/README.md` — Task 4 mechanism, run instructions, and the write-up on DTLS handshake reliability under packet loss
